@@ -1,0 +1,27 @@
+{
+  "name": "youtube-live-chat-filter",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/swen128/youtube-live-chat-filter"
+  },
+  "author": "PND",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "release": "zip -r webstore/extension.zip src/*"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "husky": "^1.0.0-rc.13",
+    "prettier": "^1.13.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
