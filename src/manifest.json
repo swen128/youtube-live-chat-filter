@@ -1,7 +1,7 @@
 {
   "name": "YouTube Live chat filter",
   "version": "0.0.1",
-  "description": "Filter out YouTube Live chat messages with keywords.",
+  "description": "YouTube Live のチャットで NG ワードを含むものを非表示にする。",
   "permissions": ["storage"],
   "icons": {
     "16": "images/icon16.png",
