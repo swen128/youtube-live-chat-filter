@@ -9,7 +9,9 @@
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
-  "options_page": "options.html",
+  "browser_action": {
+    "default_popup": "options.html"
+  },
   "background": {
     "scripts": ["background.js"],
     "persistent": false

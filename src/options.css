@@ -1,6 +1,15 @@
+body {
+  width: 400px;
+  height: 600px;
+}
+
 .content {
-  padding: 50px;
-  max-width: 650px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.mdl-layout__header-row {
+  padding-left: 15px;
 }
 
 .mdl-textfield {
@@ -8,44 +17,9 @@
 }
 
 .mdl-textfield textarea {
-  padding: 4px;
   border: 1px solid rgba(0, 0, 0, .12);
 }
 
 .mdl-dialog__title {
   font-size: 1.5rem;
-}
-
-.button-area {
-  width: 100%;
-  margin-top: -8px;
-}
-
-.notification-test-area {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.notification-test-area * {
-  margin-left: 10px;
-}
-
-.notification-test-area .helptip {
-  cursor: default;
-}
-
-.notification-test-area .mdl-tooltip {
-  margin-left: 0;
-  text-align: left;
-}
-
-.notification-test-area .mdl-tooltip:before {
-  content: "";
-  position: absolute;
-  left: 77px;
-  top: -7px;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid rgba(97,97,97,.9);;
-  border-left: 7px solid transparent;
 }

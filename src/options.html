@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <title>オプション - YouTube Live chat filter</title>
@@ -12,31 +12,26 @@
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--grey-100">
     <header class="mdl-layout__header mdl-layout__header--scroll">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">オプション - YouTube Live chat filter</span>
+        <span class="mdl-layout-title">NG ワード設定</span>
       </div>
     </header>
     <main class="mdl-layout__content">
-      <div class="content mdl-grid mdl-shadow--2dp mdl-color--white mdl-color-text--grey-800">
-        <div class="mdl-cell mdl-cell--12-col">
-          <h3>Keywords</h3>
-          <div id="keyword-list" class="mdl-textfield mdl-js-textfield mdl-color-text--grey-600">
-            <textarea class="mdl-textfield__input" rows="30" placeholder="NG ワードを一行ごとに入力"></textarea>
-          </div>
+      <div class="content">
+        <div class="mdl-textfield mdl-js-textfield">
+                  <textarea id="keyword-list" class="mdl-textfield__input" rows="24"
+                            placeholder="NG ワードを一行ごとに入力"></textarea>
         </div>
 
-        <div class="button-area mdl-grid">
-          <div class="mdl-cell mdl-cell--6-col">
-            <button id="save-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">保存</button>
-          </div>
-          <div class="mdl-cell mdl-cell--2-col"></div>
+        <div class="button-area">
+          <button id="save-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">保存
+          </button>
         </div>
 
-        <dialog class="mdl-dialog" id="result-dialog">
-          <h4 class="mdl-dialog__title">設定を保存しました</h4>
-          <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button close">閉じる</button>
-          </div>
-        </dialog>
+        <div id="save-notifier" aria-live="assertive" aria-atomic="true" aria-relevant="text"
+             class="mdl-snackbar mdl-js-snackbar">
+          <div class="mdl-snackbar__text"></div>
+          <button type="button" class="mdl-snackbar__action"></button>
+        </div>
       </div>
     </main>
   </div>
