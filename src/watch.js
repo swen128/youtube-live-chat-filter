@@ -1,4 +1,3 @@
-let keywordList = [];
 const storageKey = 'keywordList';
 
 const selector = {
@@ -37,6 +36,8 @@ const checkComment = async node => {
   ) {
     return;
   }
+  const storageData = await getStorageData(storageKey);
+  const keywordList = storageData[storageKey];
 
   const message = getMessage(node.querySelector('#message'));
   if (keywordList.some(value => message.includes(value))) {
@@ -45,9 +46,6 @@ const checkComment = async node => {
 };
 
 const init = async () => {
-  const storageData = await getStorageData(storageKey);
-  keywordList = storageData[storageKey];
-
   const observer = new MutationObserver(records => {
     records.forEach(record => {
       record.addedNodes.forEach(node => checkComment(node));
