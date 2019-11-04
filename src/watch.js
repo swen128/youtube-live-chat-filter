@@ -1,4 +1,5 @@
 const storageKey = 'keywordList';
+const regexKey = 'isRegexEnabled';
 
 const selector = {
   getChatDom: () => document.querySelector('yt-live-chat-app'),
@@ -36,11 +37,15 @@ const checkComment = async node => {
   ) {
     return;
   }
-  const storageData = await getStorageData(storageKey);
-  const keywordList = storageData[storageKey];
+  const keywordList = (await getStorageData(storageKey))[storageKey];
+  const isRegexEnabled = (await getStorageData(regexKey))[regexKey];
 
   const message = getMessage(node.querySelector('#message'));
-  if (keywordList.some(value => message.includes(value))) {
+
+  if (
+    (!isRegexEnabled && keywordList.some(pattern => message.includes(pattern))) ||
+    (!!isRegexEnabled && keywordList.some(pattern => new RegExp(pattern).test(message)))
+  ) {
     node.remove();
   }
 };
