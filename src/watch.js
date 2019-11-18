@@ -46,7 +46,7 @@ const checkComment = async node => {
     (!isRegexEnabled && keywordList.some(pattern => message.includes(pattern))) ||
     (!!isRegexEnabled && keywordList.some(pattern => new RegExp(pattern).test(message)))
   ) {
-    node.remove();
+    node.hidden = true;
   }
 };
 
