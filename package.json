@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint src/**/*.js",
-    "release": "zip -r webstore/extension.zip src/*"
+    "release": "webstore upload --source=src --auto-publish"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",

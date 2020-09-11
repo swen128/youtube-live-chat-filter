@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - '14'
+env:
+  - EXTENSION_ID=noekfhlpihlpicbghhjiflhgkfgcikjh
+deploy:
+  provider: script
+  script: yarn release
+  on:
+    branch: master
+    tags: true
