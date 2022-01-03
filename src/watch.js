@@ -1,5 +1,6 @@
 const storageKey = 'keywordList';
 const regexKey = 'isRegexEnabled';
+const hideEmojiOnlyKey = 'hideEmojiOnly';
 
 const selector = {
   getChatDom: () => document.querySelector('yt-live-chat-app'),
@@ -39,12 +40,18 @@ const checkComment = async node => {
   }
   const keywordList = (await getStorageData(storageKey))[storageKey];
   const isRegexEnabled = (await getStorageData(regexKey))[regexKey];
+  const hideEmojiOnly = (await getStorageData(hideEmojiOnlyKey))[hideEmojiOnlyKey];
 
-  const message = getMessage(node.querySelector('#message'));
+  const message = node.querySelector('#message');
+  const messageText = getMessage(message)
+
+  const children = Array.from(message.childNodes)
+  const onlyEmoji = children.every((c) => c.nodeName === 'IMG')
 
   if (
-    (!isRegexEnabled && keywordList.some(pattern => message.includes(pattern))) ||
-    (!!isRegexEnabled && keywordList.some(pattern => new RegExp(pattern).test(message)))
+    (!isRegexEnabled && keywordList.some(pattern => messageText.includes(pattern))) ||
+    (!!isRegexEnabled && keywordList.some(pattern => new RegExp(pattern).test(messageText))) || 
+    (!!hideEmojiOnly && onlyEmoji)
   ) {
     node.hidden = true;
   }
